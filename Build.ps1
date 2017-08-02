@@ -1,4 +1,4 @@
-# Taken from psake https://github.com/psake/psake
+﻿# Taken from psake https://github.com/psake/psake
 
 <#
 .SYNOPSIS
@@ -35,7 +35,7 @@ exec { & dotnet restore }
 
 exec { & dotnet build -c Release --version-suffix=$buildSuffix }
 
-Push-Location -Path .\test\ContosoUniversityCore.IntegrationTests
+Push-Location -Path .\test\ContosoUniversityCore.UnitTests
 
 try {
 	exec { & dotnet test -c Release --no-build }
@@ -44,7 +44,7 @@ finally {
 	Pop-Location
 }
 
-Push-Location -Path .\test\ContosoUniversityCore.UnitTests
+Push-Location -Path .\test\ContosoUniversityCore.IntegrationTests
 
 try {
 	exec { & dotnet test -c Release --no-build }
