@@ -53,6 +53,4 @@ finally {
 	Pop-Location
 }
 
-exec { & dotnet pack .\src\ContosoUniversityCore -c Release -o .\artifacts --version-suffix=$revision }
-
 
