@@ -31,6 +31,10 @@ $suffix = @{ $true = ""; $false = "$($branch.Substring(0, [math]::Min(10,$branch
 $commitHash = $(git rev-parse --short HEAD)
 $buildSuffix = @{ $true = "$($suffix)-$($commitHash)"; $false = "$($branch)-$($commitHash)" }[$suffix -ne ""]
 
+exec { & .\tools\rh.exe /d=ContosoUniversity /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent }
+exec { & .\tools\rh.exe /d=ContosoUniversity-Test /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent /drop }
+exec { & .\tools\rh.exe /d=ContosoUniversity-Test /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent /simple }
+
 exec { & dotnet restore }
 
 exec { & dotnet build -c Release --version-suffix=$buildSuffix }

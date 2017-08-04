@@ -22,6 +22,7 @@
             public int ID { get; set; }
             [Display(Name = "First Name")]
             public string FirstMidName { get; set; }
+            public string MiddleName { get; set; }
             public string LastName { get; set; }
             public DateTime EnrollmentDate { get; set; }
             public List<Enrollment> Enrollments { get; set; } 

@@ -32,6 +32,9 @@
             [Display(Name = "First Name")]
             public string FirstMidName { get; set; }
 
+            [Display(Name = "Middle Name")]
+            public string MiddleName { get; set; }
+
             public DateTime? EnrollmentDate { get; set; }
         }
 
