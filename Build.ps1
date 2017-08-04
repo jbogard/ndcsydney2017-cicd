@@ -57,4 +57,11 @@ finally {
 	Pop-Location
 }
 
+exec { & dotnet publish src/ContosoUniversityCore --output .\..\..\publish --configuration Release }
+
+$octo_revision = @{ $true = $env:APPVEYOR_BUILD_NUMBER; $false = "0" }[$env:APPVEYOR_BUILD_NUMBER -ne $NULL];
+$octo_version = "1.0.$octo_revision"
+
+exec { & .\tools\Octo.exe pack --id ContosoUniversityCore --version $octo_version --basePath publish --outFolder artifacts }
+
 
