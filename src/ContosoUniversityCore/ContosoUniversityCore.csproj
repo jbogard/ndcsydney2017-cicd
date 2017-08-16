@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\tools\rh.exe" Link="App_Data\rh.exe" />
-    <None Include="..\..\tools\rh.exe.config" Link="App_Data\rh.exe.config" />
+    <None Include="..\..\tools\rh.exe" Link="App_Data\rh.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\tools\rh.exe.config" Link="App_Data\rh.exe.config" CopyToOutputDirectory="PreserveNewest" />
     <None Include="App.config" />
     <None Update="wwwroot\**\*;Views;Areas\**\*.cshtml;Features\**\*.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
