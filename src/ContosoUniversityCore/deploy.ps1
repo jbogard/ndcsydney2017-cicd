@@ -18,6 +18,6 @@ exec { & .\App_Data\rh.exe --connectionstring $connection_string `
                   --env $deployment_environment `
                   --output .\App_Data\output `
                   --sqlfilesdirectory .\App_Data `
-                  --versionfile .\bin\ContosoUniversityCore.dll `
+                  --versionfile .\ContosoUniversityCore.exe `
                   --transaction `
                   --silent }
