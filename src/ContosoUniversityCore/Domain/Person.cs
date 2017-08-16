@@ -19,6 +19,8 @@ namespace ContosoUniversityCore.Domain
         [Display(Name = "First Name")]
         public string FirstMidName { get; set; }
 
+        public string MiddleName { get; set; }
+
         [Display(Name = "Full Name")]
         [Computed]
         public string FullName => LastName + ", " + FirstMidName;
