@@ -19,11 +19,6 @@ namespace ContosoUniversityCore.Domain
         [Display(Name = "First Name")]
         public string FirstMidName { get; set; }
 
-        [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
-        [Column("MiddleName")]
-        [Display(Name = "Middle Name")]
-        public string MiddleName { get; set; }
-
         [Display(Name = "Full Name")]
         [Computed]
         public string FullName => LastName + ", " + FirstMidName;

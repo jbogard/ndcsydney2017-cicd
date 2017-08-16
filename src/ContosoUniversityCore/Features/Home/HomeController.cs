@@ -7,16 +7,8 @@
 
     public class HomeController : Controller
     {
-        private readonly SchoolContext _db;
-
-        public HomeController(SchoolContext db)
+        public IActionResult Index()
         {
-            _db = db;
-        }
-        public async Task<IActionResult> Index()
-        {
-            var courses = await _db.Courses.ToListAsync();
-            ViewBag.Courses = courses;
             return View();
         }
 
