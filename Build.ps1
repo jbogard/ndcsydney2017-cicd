@@ -31,9 +31,9 @@ $suffix = @{ $true = ""; $false = "$($branch.Substring(0, [math]::Min(10,$branch
 $commitHash = $(git rev-parse --short HEAD)
 $buildSuffix = @{ $true = "$($suffix)-$($commitHash)"; $false = "$($branch)-$($commitHash)" }[$suffix -ne ""]
 
-#exec { & .\tools\rh.exe /d=ContosoUniversity /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent }
-#exec { & .\tools\rh.exe /d=ContosoUniversity-Test /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent /drop }
-#exec { & .\tools\rh.exe /d=ContosoUniversity-Test /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent /simple }
+exec { & .\tools\rh.exe /d=ContosoUniversity /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent }
+exec { & .\tools\rh.exe /d=ContosoUniversity-Test /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent /drop }
+exec { & .\tools\rh.exe /d=ContosoUniversity-Test /f=src\ContosoUniversityCore\App_Data /s="(LocalDb)\mssqllocaldb" /silent /simple }
 
 exec { & dotnet restore }
 
@@ -57,11 +57,11 @@ finally {
 	Pop-Location
 }
 
-#exec { & dotnet publish src/ContosoUniversityCore --output .\..\..\publish --configuration Release }
+exec { & dotnet publish src/ContosoUniversityCore --output .\..\..\publish --configuration Release }
 
-#$octo_revision = @{ $true = $env:APPVEYOR_BUILD_NUMBER; $false = "0" }[$env:APPVEYOR_BUILD_NUMBER -ne $NULL];
-#$octo_version = "1.0.$octo_revision"
+$octo_revision = @{ $true = $env:APPVEYOR_BUILD_NUMBER; $false = "0" }[$env:APPVEYOR_BUILD_NUMBER -ne $NULL];
+$octo_version = "1.0.$octo_revision"
 
-#exec { & .\tools\Octo.exe pack --id ContosoUniversityCore --version $octo_version --basePath publish --outFolder artifacts }
+exec { & .\tools\Octo.exe pack --id ContosoUniversityCore --version $octo_version --basePath publish --outFolder artifacts }
 
 
