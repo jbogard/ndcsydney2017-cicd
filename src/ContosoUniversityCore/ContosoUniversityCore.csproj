@@ -9,8 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\tools\rh.exe" Link="App_Data\rh.exe" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="..\..\tools\rh.exe.config" Link="App_Data\rh.exe.config" CopyToOutputDirectory="PreserveNewest" />
     <None Include="App.config" />
     <None Update="wwwroot\**\*;Views;Areas\**\*.cshtml;Features\**\*.cshtml">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -53,6 +51,9 @@
 
   <ItemGroup>
     <None Include="App_Data\**\*" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="deploy.ps1" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\tools\rh.exe" Link="App_Data\rh.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\tools\rh.exe.config" Link="App_Data\rh.exe.config" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
